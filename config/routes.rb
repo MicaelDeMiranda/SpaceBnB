@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "planets#index"
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
+
   resources :planets, except: :index do
     resources :bookings, only: %i[create destroy]
   end
