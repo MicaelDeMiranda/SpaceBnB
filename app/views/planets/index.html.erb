@@ -1,0 +1,7 @@
+<h1>Coucou</h1>
+<% @planets.each do |planet| %>
+  <%= planet.name %>
+  <%= planet.location %>
+<% end %>
+
+<%= link_to 'Nouvelle planète', new_planet_path %>
