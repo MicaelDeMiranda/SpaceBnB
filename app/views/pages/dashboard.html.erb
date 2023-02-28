@@ -1,4 +1,4 @@
-<h1>Welcome to your dashboard !</h1>
+<h1>Bienvenue <%= current_user.first_name %> !</h1>
 <h2>Mes planètes</h2>
 <% @planets.each do |planet| %>
 <h3>Planète : <%= planet.name %></h3>
@@ -24,10 +24,11 @@
 
 <h2>Mes réservations</h2>
 <% @my_bookings.each do |my_booking| %>
-<h3>Planète : <%= my_booking.planet.name %></h3>
-<p><%= my_booking.planet.location %></p>
-<p><%= my_booking.number_of_visitors %></p>
-<p><%= my_booking.starting_date %></p>
-<p><%= my_booking.ending_date %></p>
-<p><%= my_booking.status%></p>
+  <h3>Planète : <%= my_booking.planet.name %></h3>
+  <p><%= my_booking.planet.location %></p>
+  <p><%= my_booking.number_of_visitors %></p>
+  <p><%= my_booking.starting_date %></p>
+  <p><%= my_booking.ending_date %></p>
+  <p><%= my_booking.status%></p>
+  <%= link_to 'Annuler', planet_path(my_booking), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir annuler ?"}%>
 <% end %>

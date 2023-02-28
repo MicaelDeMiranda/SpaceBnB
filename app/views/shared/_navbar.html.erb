@@ -20,22 +20,22 @@
             <%= link_to "Compte", dashboard_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Déconnexion", "#", class: "nav-link" %>
+            <%=  link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Se connecter", "users/sign_in", class: "nav-link" %>
+            <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "S'inscrire", "/users/sign_up", class: "nav-link" %>
+            <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
