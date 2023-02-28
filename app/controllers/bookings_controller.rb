@@ -2,20 +2,23 @@ class BookingsController < ApplicationController
 
   def create
     @planet = Planet.find(params[:planet_id])
-    @booking = Bookin.new(booking_params)
-    @booking.user = current_user
+    @booking = Booking.new(booking_params)
     @booking.planet = @planet
-    authorize @planet
-
-    if @planet.save
-      redirect_to planet_path(@planet)
+    @booking.user = current_user
+    raise
+    if @booking.save
+      redirect_to dashboard_path
     else
       render 'planets/show', status: :unprocessable_entity
     end
+    authorize @booking
   end
 
   def destroy
-
+    @booking = Booking.find(params[:id])
+    authorize @planet
+    @booking.destroy
+    redirect_to dashboard_path
   end
 
   def accept
