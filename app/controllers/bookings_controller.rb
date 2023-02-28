@@ -5,7 +5,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.planet = @planet
     @booking.user = current_user
-    raise
     if @booking.save
       redirect_to dashboard_path
     else
