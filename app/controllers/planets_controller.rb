@@ -13,7 +13,6 @@ class PlanetsController < ApplicationController
     authorize @planet
   end
 
-
   def edit
     @planet = Planet.find(params[:id])
     authorize @planet
@@ -46,8 +45,7 @@ class PlanetsController < ApplicationController
 
   private
 
-def planet_params
-  params.require(:planet).permit(:name, :location, :planet_photo, :price_per_night, :user_id)
-end
-
+  def planet_params
+    params.require(:planet).permit(:name, :location, :planet_photo, :price_per_night, :user_id)
+  end
 end
