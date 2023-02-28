@@ -4,3 +4,13 @@
 <h3>Planète : <%= planet.name %></h3>
 <p><%= planet.location %></p>
 <% end %>
+
+<h2>Mes réservations</h2>
+<% @bookings.each do |booking| %>
+<h3>Planète : <%= booking.planet.name %></h3>
+<p><%= booking.planet.location %></p>
+<p><%= booking.number_of_visitors %></p>
+<p><%= booking.starting_date %></p>
+<p><%= booking.ending_date %></p>
+<p><%= booking.status ? "Réservation confirmée" : "En attente de confirmation" %></p>
+<% end %>

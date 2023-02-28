@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_111731) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_132121) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_111731) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.date "ending_date"
+    t.date "starting_date"
+    t.boolean "status", default: false
+    t.integer "number_of_visitors"
+    t.bigint "user_id", null: false
+    t.bigint "planet_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["planet_id"], name: "index_bookings_on_planet_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "planets", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -49,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_111731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_per_night"
+    t.integer "capacity"
     t.index ["user_id"], name: "index_planets_on_user_id"
   end
 
@@ -66,5 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_111731) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "planets"
+  add_foreign_key "bookings", "users"
   add_foreign_key "planets", "users"
 end
