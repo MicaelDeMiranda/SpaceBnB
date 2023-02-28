@@ -4,3 +4,6 @@
 <p><%= @planet.user.email %></p>
 <%= image_tag @planet.planet_photo, alt: @planet.name %>
 
+<% if policy(@planet).edit? %>
+  <p><%= link_to "Editer cette planète", edit_planet_path %></p>
+<% end %>
