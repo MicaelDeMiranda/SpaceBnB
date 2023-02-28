@@ -13,7 +13,7 @@ class PlanetsController < ApplicationController
 
   # def create
   #   @planet = Planet.new(planet_params)
-  #   @planet.user = @current_user
+  #   @planet.user = current_user
   #   raise
   #   if @planet.save
   #     redirect_to root_path

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
 
+# Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  # root "articles#index"
 end
 
 # resources :planets, except: :index do
@@ -12,7 +16,3 @@ end
 
 # patch 'bookings/:id/accept', to: 'bookings#accept', as: 'accept'
 # patch 'bookings/:id/decline', to: 'bookings#decline', as: 'decline'
-# # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-# Defines the root path route ("/")
-# root "articles#index"
