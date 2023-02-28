@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "planets#index"
 
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
+  get 'planets/:id/edit', to: 'planets#edit', as: 'edit_planet'
+  patch 'planets/:id', to: 'planets#update'
+  delete 'planets/:id', to: 'planets#destroy'
   get 'planets/new', to: 'planets#new', as: 'new_planet'
   get 'planets/:id', to: 'planets#show', as: 'planet'
   post 'planets', to: 'planets#create'
@@ -12,6 +15,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 end
+
 
 # resources :planets, except: :index do
 #   resources :bookings, only: %i[create destroy]
