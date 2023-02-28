@@ -1,6 +1,11 @@
 <h1>Coucou</h1>
-<% @planets.each do |planet| %>
-  <p><%= link_to planet.name, planet_path(planet) %></p>
-<% end %>
+<div class="cards">
+  <% @planets.each do |planet| %>
+    <div class="card-planet">
+      <p><%= link_to planet.name, planet_path(planet) %></p>
+      <%=image_tag planet.photo, height: 400, width: 400, crop: :fit %>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to 'Nouvelle planète', new_planet_path %>
