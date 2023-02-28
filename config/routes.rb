@@ -6,12 +6,11 @@ Rails.application.routes.draw do
   end
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
 
+  patch 'bookings/:id/accept', to: 'bookings#accept', as: 'accept'
+  patch 'bookings/:id/decline', to: 'bookings#decline', as: 'decline'
 end
 
 
 # resources :planets, except: :index do
 #   resources :bookings, only: %i[create destroy]
 # end
-
-# patch 'bookings/:id/accept', to: 'bookings#accept', as: 'accept'
-# patch 'bookings/:id/decline', to: 'bookings#decline', as: 'decline'
