@@ -6,7 +6,14 @@ Rails.application.routes.draw do
   get 'planets/:id/edit', to: 'planets#edit'
   patch 'planets/:id', to: 'planets#update'
   delete 'planets/:id', to: 'planets#destroy'
+  get 'planets/new', to: 'planets#new', as: 'new_planet'
+  get 'planets/:id', to: 'planets#show', as: 'planet'
+  post 'planets', to: 'planets#create'
 
+# Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  # root "articles#index"
 end
 
 
@@ -16,7 +23,3 @@ end
 
 # patch 'bookings/:id/accept', to: 'bookings#accept', as: 'accept'
 # patch 'bookings/:id/decline', to: 'bookings#decline', as: 'decline'
-# # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-# Defines the root path route ("/")
-# root "articles#index"

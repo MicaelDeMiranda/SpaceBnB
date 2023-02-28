@@ -3,24 +3,16 @@ class PlanetsController < ApplicationController
     @planets = Planet.all
   end
 
-  # def show
-  #   @planet = Planet.find(params[:id])
-  # end
+  def show
+    @planet = Planet.find(params[:id])
+    authorize @planet
+  end
 
-  # def new
-  #   @planet = Planet.new
-  # end
+  def new
+    @planet = Planet.new
+    authorize @planet
+  end
 
-  # def create
-  #   @planet = Planet.new(planet_params)
-  #   @planet.user = current_user
-  #   raise
-  #   if @planet.save
-  #     redirect_to root_path
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
 
   def edit
     @planet = Planet.find(params[:id])
@@ -40,11 +32,22 @@ class PlanetsController < ApplicationController
     # redirect_to planet_path, status: :see_other
   end
 
+  def create
+    @planet = Planet.new(planet_params)
+    @planet.user = current_user
+    authorize @planet
+
+    if @planet.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
 
-  def planet_params
-    params.require(:planet).permit(:name, :location, :user_id)
-    authorize @planet
-  end
+def planet_params
+  params.require(:planet).permit(:name, :location, :planet_photo, :user_id)
+end
 
 end
