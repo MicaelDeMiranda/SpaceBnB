@@ -5,6 +5,11 @@
 <p><%= @planet.user.email %></p>
 <%= image_tag @planet.planet_photo, alt: @planet.name %>
 
+  <% if policy(@planet).edit? %>
+  <p><%= button_to "Editer cette planète", edit_planet_path %></p>
+  <% end %>
+
+  <p><%= button_to "Destroy this planet", @planet, method: :delete if policy(@planet).destroy? %></p>
 <h2>Réserver</h2>
 
 <%= simple_form_for [@planet, @booking] do |f| %>
@@ -13,6 +18,5 @@
   <%= f.input :number_of_visitors%>
   <%= f.submit %>
 
-  <% if policy(@planet).edit? %>
-  <p><%= link_to "Editer cette planète", edit_planet_path %></p>
+
 <% end %>

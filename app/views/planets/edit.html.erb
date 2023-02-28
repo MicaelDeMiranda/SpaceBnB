@@ -1,7 +1,5 @@
 <h1>Edit</h1>
 
-<%= button_to "Destroy this planet", @planet, method: :delete if policy(@planet).destroy? %>
-
 
 <%= simple_form_for(@planet) do |f| %>
   <%= f.input :name %>
