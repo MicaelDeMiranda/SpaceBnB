@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "planets#index"
 
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
-  get 'planets/:id/edit', to: 'planets#edit'
+  get 'planets/:id/edit', to: 'planets#edit', as: 'edit_planet'
   patch 'planets/:id', to: 'planets#update'
   delete 'planets/:id', to: 'planets#destroy'
   get 'planets/new', to: 'planets#new', as: 'new_planet'
