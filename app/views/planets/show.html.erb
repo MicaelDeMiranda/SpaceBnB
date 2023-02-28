@@ -1,7 +1,8 @@
 <h1>Planète : <%= @planet.name %></h1>
-<% if policy(@planet).edit? %>
-  <%= link_to "Edit this planet", edit_planet_path(@planet) %> |
-<% end %>
 
-<%= button_to "Destroy this planet", @planet, method: :delete if policy(@planet).destroy? %>
+
+=======
+<p><%= @planet.location %></p>
+<p><%= @planet.user.email %></p>
+<%= image_tag @planet.planet_photo, alt: @planet.name %>
 
