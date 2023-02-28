@@ -1,1 +1,6 @@
 <h1>Welcome to your dashboard !</h1>
+<h2>Mes planètes</h2>
+<% @planets.each do |planet| %>
+<h3>Planète : <%= planet.name %></h3>
+<p><%= planet.location %></p>
+<% end %>
