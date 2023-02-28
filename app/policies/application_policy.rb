@@ -25,7 +25,6 @@ class ApplicationPolicy
   end
 
   def update?
-    record.user == user
     false
   end
 
@@ -34,7 +33,6 @@ class ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
     false
   end
 

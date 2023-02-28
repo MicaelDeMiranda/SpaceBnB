@@ -1,8 +1,15 @@
 <h1>Planète : <%= @planet.name %></h1>
 
-
-=======
+<h2>Informations :</h2>
 <p><%= @planet.location %></p>
 <p><%= @planet.user.email %></p>
 <%= image_tag @planet.planet_photo, alt: @planet.name %>
 
+<h2>Réserver</h2>
+
+<%= simple_form_for [@planet, @booking] do |f| %>
+  <%= f.input :ending_date %>
+  <%= f.input :starting_date%>
+  <%= f.input :number_of_visitors%>
+  <%= f.submit %>
+<% end %>
