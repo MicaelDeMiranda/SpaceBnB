@@ -21,9 +21,20 @@ class BookingsController < ApplicationController
   end
 
   def accept
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.status = "Réservation confirmée"
+    @booking.save
+    redirect_to dashboard_path
   end
 
   def decline
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.status = "Réservation refusée"
+    @booking.save
+    redirect_to dashboard_path
+    #rajouter une ancre pour venir au meme endroit
   end
 
   private

@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @planets = Planet.where(user: current_user)
-    @bookings = Booking.where(user_id: current_user.id)
+    @my_bookings = Booking.where(user_id: current_user.id)
+    @planet_bookings = Booking.where(planet_id: @planets)
   end
 end
