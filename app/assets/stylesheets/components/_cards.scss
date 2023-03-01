@@ -2,12 +2,36 @@
 
 .card-planet{
   border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px 15px;
+  display: flexbox;
+  justify-content: center;
+  position: relative;
+}
+
+.price {
+  position: absolute;
+  right: 16px;
+  bottom: 45px;
+}
+
+.image_top_card {
+  background-size: contain;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  border-radius: 20px;
 }
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 50px;
+}
+
+.planet-name {
+  text-decoration: none;
 }
 
 .card-reservation {

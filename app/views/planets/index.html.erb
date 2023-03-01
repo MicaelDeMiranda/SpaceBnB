@@ -1,11 +1,13 @@
-
 <h1>SpaceBnB</h1>
-<h2>Conquérir l’espace n’a jamais été aussi facile.</h2>
-<div class="cards">
-  <% @planets.each do |planet| %>
-    <div class="card-planet">
-      <p><%= link_to planet.name, planet_path(planet) %></p>
-      <%=image_tag planet.photo, height: 400, width: 400, crop: :fit %>
-    </div>
-  <% end %>
-</div>
+  <h2>Conquérir l’espace n’a jamais été aussi facile.</h2>
+  <div class="cards">
+    <% @planets.each do |planet| %>
+      <div class="card-planet">
+        <div class="image_top_card" style="background-image: url(<%= asset_url(planet_helper(planet)) %>);"></div>
+        <h2> <%= link_to planet.name, planet_path(planet), class: "planet-name"%></h2>
+        <p> <%= planet.location %></p>
+        <div class="price">
+          <p> <%= planet.price_per_night %> €/nuit </p>
+        </div>
+      </div>
+    <% end %>
