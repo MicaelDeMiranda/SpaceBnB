@@ -11,7 +11,7 @@
     <%= f.input :last_name,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "eNommail" }%>
+                input_html: { autocomplete: "Nom" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -23,6 +23,9 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo,
+                    required: true,
+                    input_html: { autocomplete: "votre photo" } %>
   </div>
 
   <div class="form-actions">
