@@ -9,29 +9,30 @@ puts "Cleaning database..."
 Planet.destroy_all
 User.destroy_all
 
-user = User.create(email: "toto@toto.com", password: "mdpmdp")
+user_booker = User.create(email: "booker@spacebnb.com", password: "mdpmdp", first_name: 'Bob', last_name: 'Booker')
+user_owner = User.create(email: "owner@spacebnb.com", password: "mdpmdp", first_name: 'Olivier', last_name: 'Owner')
 
 planets = [
-  { name: 'Arrakis', location: "500 années-lumière", price_per_night: 50, user: user },
-  { name: 'Cérès', location: "413 millions km", capacity: "10", price_per_night: "300", user: user },
-  { name: "Éris", location: "565 millions km", capacity: "500", price_per_night: "250", user: user },
-  { name: "Hauméa", location: "5,2 milliards km", capacity: "230", price_per_night: "270", user: user },
-  { name: "Jupiter", location: "778 millions km", capacity: "10000", price_per_night: "700", user: user },
-  { name: "Krypton", location: "27 années-lumière", capacity: "1", price_per_night: "1000000", user: user },
-  { name: "Lune", location: "150 millions km", capacity: "2", price_per_night: "1000000", user: user },
-  { name: "Makémaké", location: "7,8 milliards km", capacity: "50", price_per_night: "500", user: user },
-  { name: "Mars", location: "227 millions km", capacity: "50000", price_per_night: "1000", user: user },
-  { name: "Mercure", location: "58 millions km", capacity: "56", price_per_night: "650", user: user},
-  { name: "Neptune", location: "4,5 milliards km", capacity: "25", price_per_night: "75", user: user },
-  { name: "Pandora", location: "4,4 années-lumière", capacity: "22530", price_per_night: "1000000", user: user },
-  { name: "Pluton", location: "5,9 milliards km", capacity: "5", price_per_night: "15000", user: user },
-  { name: "Saturne", location: "1,5 milliards km", capacity: "100000", price_per_night: "80000", user: user },
-  { name: "Soleil", location: "0 km", capacity: "100", price_per_night: "60000", user: user },
-  { name: "Tatooine", location: "108 années-lumière", capacity: "3000", price_per_night: "75000", user: user },
-  { name: "Terre", location: "150 millions km", capacity: "100000", price_per_night: "10", user: user },
-  { name: "Uranus", location: "2,8 millions km", capacity: "2000", price_per_night: "60000", user: user },
-  { name: "Vénus", location: "108 milliards km", capacity: "6", price_per_night: "90000", user: user },
-  { name: "Vulcain", location: "653 années-lumière", capacity: "7000", price_per_night: "150000", user: user }
+  { name: 'Arrakis', location: "500 années-lumière", price_per_night: 50, user: user_owner },
+  { name: 'Cérès', location: "413 millions km", capacity: "10", price_per_night: "300", user: user_owner },
+  { name: "Éris", location: "565 millions km", capacity: "500", price_per_night: "250", user: user_owner },
+  { name: "Hauméa", location: "5,2 milliards km", capacity: "230", price_per_night: "270", user: user_owner },
+  { name: "Jupiter", location: "778 millions km", capacity: "10000", price_per_night: "700", user: user_owner },
+  { name: "Krypton", location: "27 années-lumière", capacity: "1", price_per_night: "1000000", user: user_owner },
+  { name: "Lune", location: "150 millions km", capacity: "2", price_per_night: "1000000", user: user_owner },
+  { name: "Makémaké", location: "7,8 milliards km", capacity: "50", price_per_night: "500", user: user_owner },
+  { name: "Mars", location: "227 millions km", capacity: "50000", price_per_night: "1000", user: user_owner },
+  { name: "Mercure", location: "58 millions km", capacity: "56", price_per_night: "650", user: user_owner },
+  { name: "Neptune", location: "4,5 milliards km", capacity: "25", price_per_night: "75", user: user_owner },
+  { name: "Pandora", location: "4,4 années-lumière", capacity: "22530", price_per_night: "1000000", user: user_owner },
+  { name: "Pluton", location: "5,9 milliards km", capacity: "5", price_per_night: "15000", user: user_owner },
+  { name: "Saturne", location: "1,5 milliards km", capacity: "100000", price_per_night: "80000", user: user_owner },
+  { name: "Soleil", location: "0 km", capacity: "100", price_per_night: "60000", user: user_owner },
+  { name: "Tatooine", location: "108 années-lumière", capacity: "3000", price_per_night: "75000", user: user_owner },
+  { name: "Terre", location: "150 millions km", capacity: "100000", price_per_night: "10", user: user_owner },
+  { name: "Uranus", location: "2,8 millions km", capacity: "2000", price_per_night: "60000", user: user_owner },
+  { name: "Vénus", location: "108 milliards km", capacity: "6", price_per_night: "90000", user: user_owner },
+  { name: "Vulcain", location: "653 années-lumière", capacity: "7000", price_per_night: "150000", user: user_owner }
 ]
 
 planets.each do |data|
