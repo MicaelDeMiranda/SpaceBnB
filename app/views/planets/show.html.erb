@@ -1,8 +1,13 @@
 <h1>Planète : <%= @planet.name %></h1>
+<h2>Chez <%= @planet.user.first_name %> <%= @planet.user.last_name %></h2>
 
 <h2>Informations :</h2>
-<p><%= @planet.location %></p>
-<p><%= @planet.user.email %></p>
+<p>Distance depuis votre localisation : <%= @planet.location %></p>
+<h3>Détails :</h3>
+<p><%= @planet.description %></p>
+<p>Capacité : <%= @planet.capacity %></p>
+<p>Prix : <%= @planet.price_per_night %> € / nuit</p>
+
 <%= image_tag @planet.photo, alt: @planet.name %>
 
   <% if policy(@planet).edit? %>
@@ -17,6 +22,4 @@
   <%= f.input :starting_date%>
   <%= f.input :number_of_visitors%>
   <%= f.submit %>
-
-
 <% end %>
