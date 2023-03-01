@@ -14,12 +14,17 @@
   </div>
 </div>
 
-<div class="btn" style = "display: flex">
-  <% if policy(@planet).edit? %>
-  <p><%= button_to "Editer cette planète", edit_planet_path %></p>
-  <% end %>
-
-  <p><%= button_to "Destroy this planet", @planet, method: :delete if policy(@planet).destroy? %></p>
+<div class='d-flex'>
+    <div class='btn btn-ghost m-2'>
+      <% if policy(@planet).edit? %>
+        <p><%= link_to "Editer cette planète", edit_planet_path, class: 'clean_link' %></p>
+      <% end %>
+    </div>
+    <div class='btn btn-ghost m-2'>
+      <% if policy(@planet).destroy? %>
+      <p><%= link_to "Supprimer cette planète", @planet, method: :delete, class: 'clean_link' %></p>
+    <% end %>
+    </div>
 </div>
 <div mt-10>
 <h2><strong>Réserver</strong></h2>
@@ -30,5 +35,9 @@
   <%= f.input :starting_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, label: 'Dates'%>
   <%= f.input :ending_date, as: :string, input_html: { class: 'd-none', data: { flatpickr_target: "endTime" } }, label: false %>
   <%= f.input :number_of_visitors%>
-  <%= f.submit 'Réserver maintenant !'%>
+<div class='d-flex'>
+  <div class='btn btn-ghost m-2'>
+    <%= f.submit 'Réserver maintenant !'%>
+  </div>
+</div>
 <% end %>
