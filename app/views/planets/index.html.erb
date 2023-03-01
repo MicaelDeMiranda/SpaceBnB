@@ -1,10 +1,30 @@
 <h1>SpaceBnB</h1>
-<h2>Conquérir l’espace n’a jamais été aussi facile.</h2>
+<h2><span data-controller="typed-js"></span></h2>
 <div class="cards">
   <% @planets.each do |planet| %>
     <div class="card-planet">
       <%= link_to planet_path(planet) do %>
+
+
+<%# if planet.photo.attached? %>
+
+<%#= image_tag planet.photo.key %>
+
+<%# else %>
+
         <div class="image_top_card" style="background-image: url(<%= asset_url(planet_helper(planet)) %>);"></div>
+
+
+
+<%# end %>
+
+
+
+
+
+
+
+
         <h2> <%= link_to planet.name, planet_path(planet), class: "planet-name"%></h2>
         <p> <%= planet.location %></p>
         <div class="price">
