@@ -1,3 +1,5 @@
+
+
 .card-planet{
   border: 1px solid black;
 }
@@ -6,6 +8,40 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+
+.card-reservation {
+  overflow: hidden;
+  font-size: larger;
+  height: 220px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.image_tag_reservation {
+  height: 100%;
+  width: 200px;
+  object-fit: cover;
+}
+
+.card-reservation h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-reservation p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-reservation .card-reservation-infos {
+  padding: 16px;
 }
 
 // Smallest device
