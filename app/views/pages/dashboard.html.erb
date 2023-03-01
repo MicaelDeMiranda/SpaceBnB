@@ -1,14 +1,21 @@
 <h1>Bienvenue <%= current_user.first_name %> !</h1>
 <h2>Mes planètes :</h2>
-<% if @planets.empty? %>
-  <p>Aucune demande de réservation à venir</p>
-<% else %>
-  <% @planets.each do |planet| %>
-    <h3>Planète : <%= link_to planet.name, planet_path(planet) %></h3>
-    <p><%= planet.location %></p>
-    <%= link_to 'Voir plus', planet_path(planet) %>
+  <% if @planets.empty? %>
+    <p>Aucune demande de réservation à venir</p>
+  <% else %>
+    <div class="cards">
+      <% @planets.each do |planet| %>
+        <div class="card-planet">
+          <%= link_to planet_path(planet) do %>
+            <div class="image_top_card" style="background-image: url(<%= asset_url(planet_helper(planet)) %>);"></div>
+            <h2> <%= link_to planet.name, planet_path(planet), class: "planet-name"%></h2>
+            <p> <%= planet.location %></p>
+            <%= link_to 'Voir plus', planet_path(planet) %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
 
 <h2>Mes demandes de réservations :</h2>
 <div>
