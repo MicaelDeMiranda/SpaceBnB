@@ -14,7 +14,6 @@ class PlanetsController < ApplicationController
     authorize @planet
   end
 
-
   def edit
     @planet = Planet.find(params[:id])
     authorize @planet
@@ -22,15 +21,18 @@ class PlanetsController < ApplicationController
 
   def update
     @planet = Planet.find(params[:id])
-    @planet.update(params[:planet])
-    # redirect_to planet_path(@planet)
     authorize @planet
+    @planet.update(planet_params)
+    redirect_to planet_path(@planet)
+
   end
 
   def destroy
     @planet = Planet.find(params[:id])
+    authorize @planet
     @planet.destroy
-    # redirect_to planet_path, status: :see_other
+
+    redirect_to root_path, status: :see_other
   end
 
   def create
@@ -47,8 +49,7 @@ class PlanetsController < ApplicationController
 
   private
 
-def planet_params
-  params.require(:planet).permit(:name, :location, :planet_photo, :price_per_night, :user_id)
-end
-
+  def planet_params
+    params.require(:planet).permit(:name, :location, :photo, :price_per_night, :user_id)
+  end
 end

@@ -1,1 +1,10 @@
-Fomulaire
+<h1>Edit</h1>
+
+
+<%= simple_form_for(@planet) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :price_per_night %>
+  <%= f.input :planet_photo %>
+  <%= f.submit %>
+<% end %>
