@@ -6,6 +6,7 @@
   <%= link_to 'Voir plus', planet_path(planet) %>
 <% end %>
 
+<h2>Mes demandes de réservations :</h2>
 <div class="card-reservation">
     <% @planet_bookings.each do |planet_booking| %>
       <%= image_tag planet_booking.planet.photo, alt: planet_booking.planet.name, class: 'image_tag_reservation' %>
@@ -28,9 +29,10 @@
   </div>
 </div>
 
+  <h2>Mes réservations :</h2>
 <div class="card-reservation">
-  <h2>Mes réservations</h2>
   <% @my_bookings.each do |my_booking| %>
+  <%= image_tag my_booking.planet.photo, alt: my_booking.planet.name, class: 'image_tag_reservation' %>
   <div class="card-reservation-infos">
     <h3>Planète : <%= my_booking.planet.name %></h3>
   <p><%= my_booking.planet.location %></p>
