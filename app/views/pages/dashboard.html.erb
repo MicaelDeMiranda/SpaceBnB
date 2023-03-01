@@ -1,16 +1,34 @@
-<h1>Welcome to your dashboard !</h1>
+<h1>Bienvenue <%= current_user.first_name %> !</h1>
 <h2>Mes planètes</h2>
 <% @planets.each do |planet| %>
 <h3>Planète : <%= planet.name %></h3>
 <p><%= planet.location %></p>
 <% end %>
 
+<h2>Mes demandes de réservations :</h2>
+<% @planet_bookings.each do |planet_booking| %>
+  <h3>Planète : <%= planet_booking.planet.name %></h3>
+  <p><%= planet_booking.number_of_visitors %></p>
+  <p><%= planet_booking.starting_date %></p>
+  <p><%= planet_booking.ending_date %></p>
+  <p><%= planet_booking.status%></p>
+  <% if planet_booking.status == "En attente de confirmation"%>
+    <%= link_to  'Accept', accept_path(planet_booking), data:{turbo_method: :patch} %>
+    <%= link_to  'Decline', decline_path(planet_booking), data:{turbo_method: :patch} %>
+  <% elsif planet_booking.status == "Réservation confirmée"%>
+      <%= link_to  'Decline', decline_path(planet_booking), data:{turbo_method: :patch} %>
+  <% else planet_booking.status == "Réservation refusée"%>
+      <%= link_to  'Accept', accept_path(planet_booking), data:{turbo_method: :patch} %>
+  <% end %>
+<% end %>
+
 <h2>Mes réservations</h2>
-<% @bookings.each do |booking| %>
-<h3>Planète : <%= booking.planet.name %></h3>
-<p><%= booking.planet.location %></p>
-<p><%= booking.number_of_visitors %></p>
-<p><%= booking.starting_date %></p>
-<p><%= booking.ending_date %></p>
-<p><%= booking.status ? "Réservation confirmée" : "En attente de confirmation" %></p>
+<% @my_bookings.each do |my_booking| %>
+  <h3>Planète : <%= my_booking.planet.name %></h3>
+  <p><%= my_booking.planet.location %></p>
+  <p><%= my_booking.number_of_visitors %></p>
+  <p><%= my_booking.starting_date %></p>
+  <p><%= my_booking.ending_date %></p>
+  <p><%= my_booking.status%></p>
+  <%= link_to 'Annuler', planet_path(my_booking), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir annuler ?"}%>
 <% end %>
