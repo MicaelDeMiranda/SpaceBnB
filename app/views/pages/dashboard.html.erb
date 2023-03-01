@@ -1,57 +1,70 @@
 <h1>Bienvenue <%= current_user.first_name %> !</h1>
 <h2>Mes planètes :</h2>
-<% @planets.each do |planet| %>
-  <h3>Planète : <%= link_to planet.name, planet_path(planet) %></h3>
-  <p><%= planet.location %></p>
-  <%= link_to 'Voir plus', planet_path(planet) %>
+<% if @planets.empty? %>
+  <p>Aucune demande de réservation à venir</p>
+<% else %>
+  <% @planets.each do |planet| %>
+    <h3>Planète : <%= link_to planet.name, planet_path(planet) %></h3>
+    <p><%= planet.location %></p>
+    <%= link_to 'Voir plus', planet_path(planet) %>
+  <% end %>
 <% end %>
 
 <h2>Mes demandes de réservations :</h2>
-<% if @planet_bookings.empty? %>
-  <p>Aucune demande de réservation à venir</p>
-<% else %>
-  <div class="card-reservation">
-      <% @planet_bookings.each do |planet_booking| %>
+<div>
+  <% if @planet_bookings.empty? %>
+    <p>Aucune demande de réservation à venir</p>
+  <% else %>
+    <% @planet_bookings.each do |planet_booking| %>
+      <div class="card-reservation mb-2">
         <%= image_tag planet_booking.planet.photo, alt: planet_booking.planet.name, class: 'image_tag_reservation' %>
-          <div class="card-reservation-infos">
-            <h2>Mes demandes de réservations :</h2>
-            <h3>Planète : <%= planet_booking.planet.name %></h3>
-            <p>Nombre de visiteurs: <%= planet_booking.number_of_visitors %></p>
-            <p>Date d'arrivée: <%= planet_booking.starting_date %></p>
-            <p>Date de départ:<%= planet_booking.ending_date %></p>
-            <p>Statut:<%= planet_booking.status%></p>
+        <div class="card-reservation-infos">
+          <h3>Planète : <%= planet_booking.planet.name %></h3>
+          <p>Nombre de voyageurs : <%= planet_booking.number_of_visitors %></p>
+          <p>Date d'arrivée : <%= planet_booking.starting_date %></p>
+          <p>Date de départ : <%= planet_booking.ending_date %></p>
+          <% number_of_days = (planet_booking.ending_date - planet_booking.starting_date)%>
+          <p>Total : <%=number_of_days.to_i * planet_booking.planet.price_per_night%> €</p>
+          <p>Statut : <%= planet_booking.status%></p>
+          <div class="d-flex justify-content-end">
             <% if planet_booking.status == "En attente de confirmation"%>
-              <%= link_to  'Accept', accept_path(planet_booking), data:{turbo_method: :patch} %>
-              <%= link_to  'Decline', decline_path(planet_booking), data:{turbo_method: :patch} %>
+              <%= link_to  'Accepter', accept_path(planet_booking), data:{turbo_method: :patch}, class: "btn btn-ghost mx-2" %>
+              <%= link_to  'Refuser', decline_path(planet_booking), data:{turbo_method: :patch}, class: "btn btn-ghost mx-2" %>
             <% elsif planet_booking.status == "Réservation confirmée"%>
-                <%= link_to  'Decline', decline_path(planet_booking), data:{turbo_method: :patch} %>
+                <%= link_to  'Refuser', decline_path(planet_booking), data:{turbo_method: :patch}, class: "btn btn-ghost mx-2" %>
             <% else planet_booking.status == "Réservation refusée"%>
-                <%= link_to  'Accept', accept_path(planet_booking), data:{turbo_method: :patch} %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+                <%= link_to  'Accepter', accept_path(planet_booking), data:{turbo_method: :patch}, class: "btn btn-ghost mx-2" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
 
   <h2>Mes réservations :</h2>
-<% if @my_bookings.empty? %>
-  <p>Aucune réservation à venir</p>
-<% else %>
-  <div class="card-reservation">
-    <% @my_bookings.each do |my_booking| %>
-    <%= image_tag my_booking.planet.photo, alt: my_booking.planet.name, class: 'image_tag_reservation' %>
-    <div class="card-reservation-infos">
-      <h3>Planète : <%= my_booking.planet.name %></h3>
-    <p><%= my_booking.planet.location %></p>
-    <p><%= my_booking.number_of_visitors %></p>
-    <p><%= my_booking.starting_date %></p>
-    <p><%= my_booking.ending_date %></p>
-    <% number_of_days = (my_booking.starting_date - my_booking.ending_date)%>
-    <p>Total : <%=number_of_days.to_i * my_booking.planet.price_per_night%> €</p>
-      <p><%= my_booking.status%></p>
-      <%= link_to 'Annuler', planet_path(my_booking), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir annuler ?"}%>
+<div>
+  <% if @my_bookings.empty? %>
+    <p>Aucune réservation à venir</p>
+  <% else %>
+      <% @my_bookings.each do |my_booking| %>
+        <div class="card-reservation mb-2">
+          <%= image_tag my_booking.planet.photo, alt: my_booking.planet.name, class: 'image_tag_reservation' %>
+          <div class="card-reservation-infos">
+            <h3>Planète : <%= my_booking.planet.name %></h3>
+            <p>Lieu : <%= my_booking.planet.location %></p>
+            <p>Nombre de voyageurs : <%= my_booking.number_of_visitors %></p>
+            <p>Date d'arrivée : <%= my_booking.starting_date %></p>
+            <p>Date de départ : <%= my_booking.ending_date %></p>
+            <% number_of_days = (my_booking.ending_date - my_booking.starting_date)%>
+            <p>Total : <%=number_of_days.to_i * my_booking.planet.price_per_night%> €</p>
+            <p>Statut : <%= my_booking.status%></p>
+            <div class="d-flex justify-content-end">
+              <%= link_to 'Annuler', planet_path(my_booking), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir annuler ?"}, class: "btn btn-ghost"%>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

@@ -17,9 +17,9 @@
   <p><%= button_to "Destroy this planet", @planet, method: :delete if policy(@planet).destroy? %></p>
 <h2>Réserver</h2>
 
-<%= simple_form_for [@planet, @booking] do |f| %>
-  <%= f.input :ending_date %>
-  <%= f.input :starting_date%>
+<%= simple_form_for [@planet, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
+  <%= f.input :starting_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, label: 'Dates'%>
+  <%= f.input :ending_date, as: :string, input_html: { class: 'd-none', data: { flatpickr_target: "endTime" } }, label: false %>
   <%= f.input :number_of_visitors%>
-  <%= f.submit %>
+  <%= f.submit 'Réserver maintenant !'%>
 <% end %>
