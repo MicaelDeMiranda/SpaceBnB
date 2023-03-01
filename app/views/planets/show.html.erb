@@ -3,19 +3,28 @@
 
 <h2>Informations :</h2>
 <p>Distance depuis votre localisation : <%= @planet.location %></p>
-<h3>Détails :</h3>
-<p><%= @planet.description %></p>
-<p>Capacité : <%= @planet.capacity %></p>
-<p>Prix : <%= @planet.price_per_night %> € / nuit</p>
 
-<%= image_tag @planet.photo, alt: @planet.name %>
+<div class="card-reservation">
+  <%= image_tag @planet.photo, alt: @planet.name, class: 'image_tag_reservation' %>
+  <div class="card-reservation-infos">
+    <h3>Détails :</h3>
+    <p><%= @planet.description %></p>
+    <p>Capacité : <%= @planet.capacity %></p>
+    <p>Prix : <%= @planet.price_per_night %> € / nuit</p>
+  </div>
+</div>
 
+<div class="btn" style = "display: flex">
   <% if policy(@planet).edit? %>
   <p><%= button_to "Editer cette planète", edit_planet_path %></p>
   <% end %>
 
   <p><%= button_to "Destroy this planet", @planet, method: :delete if policy(@planet).destroy? %></p>
-<h2>Réserver</h2>
+</div>
+<div mt-10>
+<h2><strong>Réserver</strong></h2>
+</div>
+
 
 <%= simple_form_for [@planet, @booking] do |f| %>
   <%= f.input :ending_date %>
