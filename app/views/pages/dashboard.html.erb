@@ -30,6 +30,8 @@
   <p><%= my_booking.number_of_visitors %></p>
   <p><%= my_booking.starting_date %></p>
   <p><%= my_booking.ending_date %></p>
+  <% number_of_days = (my_booking.starting_date - my_booking.ending_date)%>
+  <p>Total : <%=number_of_days.to_i * my_booking.planet.price_per_night%> €</p>
   <p><%= my_booking.status%></p>
   <%= link_to 'Annuler', planet_path(my_booking), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir annuler ?"}%>
 <% end %>

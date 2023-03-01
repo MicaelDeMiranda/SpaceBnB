@@ -6,4 +6,5 @@ class PagesController < ApplicationController
     @my_bookings = Booking.where(user_id: current_user.id)
     @planet_bookings = Booking.where(planet_id: @planets)
   end
+
 end
