@@ -1,4 +1,6 @@
 class PlanetsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @planets = Planet.all
   end
@@ -24,7 +26,6 @@ class PlanetsController < ApplicationController
     authorize @planet
     @planet.update(planet_params)
     redirect_to planet_path(@planet)
-
   end
 
   def destroy
