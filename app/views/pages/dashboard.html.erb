@@ -26,14 +26,16 @@
           <% number_of_days = (planet_booking.ending_date - planet_booking.starting_date)%>
           <p>Total : <%=number_of_days.to_i * planet_booking.planet.price_per_night%> €</p>
           <p>Statut : <%= planet_booking.status%></p>
-          <% if planet_booking.status == "En attente de confirmation"%>
-            <%= link_to  'Accepter', accept_path(planet_booking), data:{turbo_method: :patch} %>
-            <%= link_to  'Refuser', decline_path(planet_booking), data:{turbo_method: :patch} %>
-          <% elsif planet_booking.status == "Réservation confirmée"%>
-              <%= link_to  'Refuser', decline_path(planet_booking), data:{turbo_method: :patch} %>
-          <% else planet_booking.status == "Réservation refusée"%>
-              <%= link_to  'Accepter', accept_path(planet_booking), data:{turbo_method: :patch} %>
-          <% end %>
+          <div class="d-flex justify-content-end">
+            <% if planet_booking.status == "En attente de confirmation"%>
+              <%= link_to  'Accepter', accept_path(planet_booking), data:{turbo_method: :patch}, class: "btn btn-ghost mx-2" %>
+              <%= link_to  'Refuser', decline_path(planet_booking), data:{turbo_method: :patch}, class: "btn btn-ghost mx-2" %>
+            <% elsif planet_booking.status == "Réservation confirmée"%>
+                <%= link_to  'Refuser', decline_path(planet_booking), data:{turbo_method: :patch}, class: "btn btn-ghost mx-2" %>
+            <% else planet_booking.status == "Réservation refusée"%>
+                <%= link_to  'Accepter', accept_path(planet_booking), data:{turbo_method: :patch}, class: "btn btn-ghost mx-2" %>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
@@ -58,7 +60,9 @@
             <% number_of_days = (my_booking.ending_date - my_booking.starting_date)%>
             <p>Total : <%=number_of_days.to_i * my_booking.planet.price_per_night%> €</p>
             <p>Statut : <%= my_booking.status%></p>
-            <%= link_to 'Annuler', planet_path(my_booking), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir annuler ?"}%>
+            <div class="d-flex justify-content-end">
+              <%= link_to 'Annuler', planet_path(my_booking), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir annuler ?"}, class: "btn btn-ghost"%>
+            </div>
           </div>
         </div>
       <% end %>
