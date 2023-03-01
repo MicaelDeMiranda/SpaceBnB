@@ -1,9 +1,13 @@
 <h1>Bienvenue <%= current_user.first_name %> !</h1>
 <h2>Mes planètes :</h2>
-<% @planets.each do |planet| %>
-  <h3>Planète : <%= link_to planet.name, planet_path(planet) %></h3>
-  <p><%= planet.location %></p>
-  <%= link_to 'Voir plus', planet_path(planet) %>
+<% if @planets.empty? %>
+  <p>Aucune demande de réservation à venir</p>
+<% else %>
+  <% @planets.each do |planet| %>
+    <h3>Planète : <%= link_to planet.name, planet_path(planet) %></h3>
+    <p><%= planet.location %></p>
+    <%= link_to 'Voir plus', planet_path(planet) %>
+  <% end %>
 <% end %>
 
 <h2>Mes demandes de réservations :</h2>
