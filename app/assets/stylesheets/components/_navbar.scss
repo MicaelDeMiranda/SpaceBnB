@@ -1,7 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: transparent;
   display: flex;
+  margin-bottom: $margin-lg;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,9 +13,12 @@
   width: 40px;
 }
 
-.test{
-  color: grey;
+.logo {
+  align-content: center;
+  color: lightgrey;
 }
 
-
+.text{
+  color: $light-gray;
+}
 

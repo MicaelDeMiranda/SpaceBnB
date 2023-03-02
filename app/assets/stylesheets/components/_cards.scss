@@ -12,12 +12,25 @@
 .price {
   position: absolute;
   right: 16px;
-  bottom: 45px;
+  bottom: 85px;
 }
 
 .image_top_card {
   background-size: contain;
-  height: 300px;
+  object-fit: cover;
+  height: 50%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  border-radius: 5%;
+}
+
+.default_top_card {
+  background-size: contain;
+  object-fit: contain;
+  height: 50%;
+  width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: black;
@@ -28,25 +41,29 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 50px;
+  color: black;
 }
 
 .planet-name {
   text-decoration: none;
+  color: black;
+}
+
+.planet-description{
+  color: black;
 }
 
 .card-reservation {
   overflow: hidden;
   font-size: larger;
   height: 220px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: transparent;
+  box-shadow: 0 0 15px $light-gray;
   display: flex;
-  align-items: center;
 }
 
 .image_tag_reservation {
   height: 100%;
-  width: 200px;
   object-fit: cover;
 }
 
