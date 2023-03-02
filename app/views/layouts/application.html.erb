@@ -11,16 +11,16 @@
   </head>
 
   <body>
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
-      <div>
-       <%= render "shared/navbar" %>
-       <%= yield %>
-        <%= render "shared/footer" %>
-       <%= render "shared/flashes" %>
-       <p class="notice"><%= notice %> </p>
-       <p class="alert"><%= alert %> </p>
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+      <%= render "shared/navbar"%>
+      <div class="container">
+        <%= yield %>
+        <%= render "shared/flashes" %>
+        <p class="notice"><%= notice %> </p>
+        <p class="alert"><%= alert %> </p>
       </div>
+      <%= render "shared/footer" %>
   </body>
 </html>

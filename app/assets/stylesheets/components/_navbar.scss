@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: $light-gray;
+  background: transparent;
   display: flex;
   margin-bottom: $margin-lg;
 }
@@ -13,6 +13,6 @@
   width: 40px;
 }
 
-.test{
-  color: $gray;
+.text{
+  color: $light-gray;
 }
