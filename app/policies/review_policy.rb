@@ -1,4 +1,4 @@
-class PlanetPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     # def resolve
@@ -16,10 +16,6 @@ class PlanetPolicy < ApplicationPolicy
 
   def create?
     true
-  end
-
-  def comment?
-    user.bookings.find { |booking| (booking.user == user && booking.ending_date < Date.today && booking.status == "Réservation confirmée") }
   end
 
   def edit?

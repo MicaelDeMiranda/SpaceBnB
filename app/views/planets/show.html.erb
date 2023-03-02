@@ -27,6 +27,42 @@
     </div>
   </div>
 
+
+<div class='mt-2 mb-2'>
+<h2><strong> Commentaires</strong></h2>
+</div>
+<ul class="list-group">
+  <% @planet.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %>
+      <% if current_user == review.user  %>
+       <p><%= link_to "Supprimer ce commentaire",
+        review_path(review),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+      <% end %></p>
+  </li>
+  <% end %>
+</ul>
+<br>
+
+
+<div class='d-flex'>
+    <% if policy(@planet).edit? %>
+      <div class='btn btn-ghost m-2'>
+        <p><%= link_to "Editer cette planète", edit_planet_path, class: 'clean_link' %></p>
+      </div>
+    <% end %>
+      <% if policy(@planet).destroy? %>
+    <div class='btn btn-ghost m-2'>
+      <p><%= link_to "Supprimer cette planète", @planet, method: :delete, class: 'clean_link' %></p>
+    </div>
+    <% end %>
+    <% if current_user && policy(@planet).comment? %>
+      <div class='btn btn-ghost m-2'>
+        <p><%= link_to "Ajouter un commentaire à cette planète", new_planet_review_path(@planet), class: 'clean_link' %></p>
+      </div>
+    <% end %>
+</div>
+
   <div class="col-4">
     <div mt-10>
       <h2><strong>Réserver</strong></h2>
@@ -41,5 +77,6 @@
         </div>
       </div>
     <% end %>
+
   </div>
 </div>
