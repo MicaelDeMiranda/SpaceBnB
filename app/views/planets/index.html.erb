@@ -6,17 +6,11 @@
       <%= link_to planet_path(planet) do %>
 
 
-<%# if planet.photo.attached? %>
-
-<%#= image_tag planet.photo.key %>
-
-<%# else %>
-
-        <div class="image_top_card" style="background-image: url(<%= asset_url(planet_helper(planet)) %>);"></div>
-
-
-
-<%# end %>
+<% if planet.photo.attached? %>
+  <%= image_tag planet.photo %>
+<% else %>
+  <div class="image_top_card" style="background-image: url(<%= asset_url(planet_helper(planet)) %>);"></div>
+<% end %>
 
 
 
