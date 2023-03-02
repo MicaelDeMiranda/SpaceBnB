@@ -13,26 +13,30 @@ user_booker = User.create(email: "booker@spacebnb.com", password: "mdpmdp", firs
 user_owner = User.create(email: "owner@spacebnb.com", password: "mdpmdp", first_name: 'Olivier', last_name: 'Owner')
 
 planets = [
-  { name: 'Arrakis', location: "500 années-lumière", capacity: "5000", price_per_night: 50, user: user_owner, description: 'Passionné de ralllyes dans le desert et de courses de vers géants ? Arrakis saura combler l’aventurier qui sommeille en vous.' },
-  { name: 'Cérès', location: "413 millions km", capacity: "10", price_per_night: "300", user: user_owner },
-  { name: "Éris", location: "565 millions km", capacity: "500", price_per_night: "250", user: user_owner },
-  { name: "Hauméa", location: "5,2 milliards km", capacity: "230", price_per_night: "270", user: user_owner },
-  { name: "Jupiter", location: "778 millions km", capacity: "10 000", price_per_night: "700", user: user_owner },
-  { name: "Krypton", location: "27 années-lumière", capacity: "1", price_per_night: "1000000", user: user_owner },
-  { name: "Lune", location: "150 millions km", capacity: "2", price_per_night: "1 000 000", user: user_owner },
-  { name: "Makémaké", location: "7,8 milliards km", capacity: "50", price_per_night: "500", user: user_owner },
-  { name: "Mars", location: "227 millions km", capacity: "50 000", price_per_night: "1000", user: user_owner },
-  { name: "Mercure", location: "58 millions km", capacity: "56", price_per_night: "650", user: user_owner },
-  { name: "Neptune", location: "4,5 milliards km", capacity: "25", price_per_night: "75", user: user_owner },
-  { name: "Pandora", location: "4,4 années-lumière", capacity: "22 530", price_per_night: "1 000 000", user: user_owner },
-  { name: "Pluton", location: "5,9 milliards km", capacity: "5", price_per_night: "15 000", user: user_owner },
-  { name: "Saturne", location: "1,5 milliards km", capacity: "100 000", price_per_night: "80 000", user: user_owner },
-  { name: "Soleil", location: "0 km", capacity: "100", price_per_night: "60 000", user: user_owner },
-  { name: "Tatooine", location: "108 années-lumière", capacity: "3000", price_per_night: "75 000", user: user_owner },
-  { name: "Terre", location: "150 millions km", capacity: "100 000", price_per_night: "10", user: user_owner },
-  { name: "Uranus", location: "2,8 millions km", capacity: "2000", price_per_night: "60 000", user: user_owner },
-  { name: "Vénus", location: "108 milliards km", capacity: "6", price_per_night: "90 000", user: user_owner },
-  { name: "Vulcain", location: "653 années-lumière", capacity: "7000", price_per_night: "150 000", user: user_owner }
+  { name: 'Arrakis', location: "500 années-lumière", capacity: "5000", price_per_night: 50, user: user_owner, description: 'Passionné de ralllyes dans le desert et de courses de vers géants ? Arrakis saura combler l’aventurier qui sommeille en vous' },
+  { name: 'Cérès', location: "413 millions km", capacity: "10", price_per_night: "300", user: user_owner, description: 'Revenez rajeuni et détendu de votre sejour sur Ceres, planète réputée pour ses spa alimentés par des geysers et offrant une atmosphère composée de vapeur d’eau et chargée en mineraux hydratés'  },
+  { name: "Éris", location: "565 millions km", capacity: "500", price_per_night: "250", user: user_owner, description:'Planète naine plutoïde, découvrez les mangnifiques paysages d’Eris avec son noyau rocheux; la planète ideale pour les randonneurs les plus expérimentés niveau 5 et niveau 6 Trek' },
+  { name: "Hauméa", location: "5,2 milliards km", capacity: "230", price_per_night: "270", user: user_owner, description:'Incontournable des planètes naines, Haumea vous surpendra par sa forme oblongue et ses 2 satellites visibles à l’oeil nu.
+    Loin de la pollution de Paris, vous retrouverez une capacité pulmonaire d’un footballeur grâce à sa croute d’azote, de méthane et de monoxyde de carbone gelée' },
+  { name: "Jupiter", location: "778 millions km", capacity: "10 000", price_per_night: "700", user: user_owner, description:'Chasseurs de tempêtes et intrépides, Jupiter est faite pour vous. Au gré des cyclones, vous pourrez vous envoyez en l’air à la facon des Jupiteriens' },
+  { name: "Krypton", location: "27 années-lumière", capacity: "1", price_per_night: "1000000", user: user_owner, description:'Pour un tête à tête avec Superman, unique habitant de la planète et vivre comme un kryptonien le temps d’un séjour' },
+  { name: "Lune", location: "150 millions km", capacity: "2", price_per_night: "1 000 000", user: user_owner, description:'Pour une lune de miel des plus romantiques au bord d’un cratère, marcher dans les pas de Neil Armstrong ou faire un selfie devant le drapeau américain, les activités sur la Lune ne manquent pas d’intérêt. 
+    Venez dormir au clair de la lune, montrer votre lune aux terriens ou vivre la pleine lune en live' },
+  { name: "Makémaké", location: "7,8 milliards km", capacity: "50", price_per_night: "500", user: user_owner, description:"Makémaké akha MK2 est la planète idéale pour les sports d'hiver en famille.A seulement à 8 mlilliards de km, vivez un séjour enneigé aux multiples activités" },
+  { name: "Mars", location: "227 millions km", capacity: "50 000", price_per_night: "1000", user: user_owner, description:'Objectif Mars, devenez un martien pour quelques jours et explorer la planète rouge aux multples facettes ' },
+  { name: "Mercure", location: "58 millions km", capacity: "56", price_per_night: "650", user: user_owner, description:'La planète métallique la plus proche du soleil vous attirera pour ses plaines, ses volcans où vous pourrez également observer les bombardements des planètes alentours par des pluies de météorites quotidiennes' },
+  { name: "Neptune", location: "4,5 milliards km", capacity: "25", price_per_night: "75", user: user_owner, description: "Bienvenue sur Neptune où l’hydrogène et l’hélium coule à flot ce qui en fait la planete la plus fun.La planète de tefeurs pour vos soirées et sans embêter les voisins" },
+  { name: "Pandora", location: "4,4 années-lumière", capacity: "22 530", price_per_night: "1 000 000", user: user_owner, description:"Venez vivre aux rythmes des autochtones Na'vi ou vous recueiller auprès de Aywa, embarquez pour Pandora pour un séjour empreint de spiritualité et de sagesse au sein d’une biodiversité unique au monde" },
+  { name: "Pluton", location: "5,9 milliards km", capacity: "5", price_per_night: "15 000", user: user_owner, description:'Planète majeure ou planète naine, venez vérifier par vous même et découvrir les caractéristiques étranges de cette terre faite de roche et de glace' },
+  { name: "Saturne", location: "1,5 milliards km", capacity: "100 000", price_per_night: "80 000", user: user_owner, description:'Saturne est une planète géante aux mysterieux anneaux. A la recherche de sensations fortes venez vous balancer à ses anneaux, les pieds suspendus dans le vide intersideral. Vue époustouflante assurée' },
+  { name: "Soleil", location: "0 km", capacity: "100", price_per_night: "60 000", user: user_owner, description:'Marre de la grisaille de la Terre, le Soleil vous séduira par son climat favorable toute l’année et ses tempétatures douces.
+    Pour un bronzage intense sans coup de soleil, venez sejourner sur une terre chaleureuse, lumineuse et accueillante' },
+  { name: "Tatooine", location: "108 années-lumière", capacity: "3000", price_per_night: "75 000", user: user_owner, description:'Avec son Comic Con annuel, festival incontournable du système solaire, Tatooine est la planète idéale pour vivre pleinement le congrès tout en decouvrant sa faune très diversifiée et ses dunes à perte de vue' },
+  { name: "Terre", location: "150 millions km", capacity: "100 000", price_per_night: "10", user: user_owner, description:"Première planète habitée du sytème solaire  , la planète bleue reste l'incontournable à visiter pour ses vestiges les plus réputés et populaires de notre galaxie" },
+  { name: "Uranus", location: "2,8 millions km", capacity: "2000", price_per_night: "60 000", user: user_owner, description:'La géante des glaces séduira tous les fans de grimpette experts ou non. Décrouvrez des paysages à couper le souffle de par sa concentration atmosphérique en amoniac, en poussière et en méthane' },
+  { name: "Vénus", location: "108 milliards km", capacity: "6", price_per_night: "90 000", user: user_owner, description:'Pas comme les rois mages en Galilié, venez vivre sur Uranus l’étoile du berger.
+    Cette planète au doux nom de la déesse de l’amour et aux nombreuses activités pour les amoureux offrira à votre couple un séjour inoubliable' },
+  { name: "Vulcain", location: "653 années-lumière", capacity: "7000", price_per_night: "150 000", user: user_owner, description:'Destination prisée des étudiants pour les échanges Erasmus, sur Vulcain vous vivrez en immersion totale auprès des vulcains et apprendrez le klingo, deuxième langue parlée de la planète' }
 ]
 
 planets.each do |data|
