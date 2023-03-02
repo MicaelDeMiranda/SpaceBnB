@@ -31,7 +31,8 @@
           <p>Date d'arrivée : <%= planet_booking.starting_date %></p>
           <p>Date de départ : <%= planet_booking.ending_date %></p>
           <% number_of_days = (planet_booking.ending_date - planet_booking.starting_date)%>
-          <p>Total : <%=number_of_days.to_i * planet_booking.planet.price_per_night%> €</p>
+          <% total = number_of_days.to_i * planet_booking.planet.price_per_night%>
+          <p>Total : <%=number_with_delimiter(total, delimiter: " ",)%> €</p>
           <p>Statut : <%= planet_booking.status%></p>
           <div class="d-flex justify-content-end">
             <% if planet_booking.status == "En attente de confirmation"%>
@@ -65,7 +66,8 @@
             <p>Date d'arrivée : <%= my_booking.starting_date %></p>
             <p>Date de départ : <%= my_booking.ending_date %></p>
             <% number_of_days = (my_booking.ending_date - my_booking.starting_date)%>
-            <p>Total : <%=number_of_days.to_i * my_booking.planet.price_per_night%> €</p>
+            <% total = number_of_days.to_i * my_booking.planet.price_per_night%>
+            <p>Total : <%=number_with_delimiter(total, delimiter: " ",)%> €</p>
             <p>Statut : <%= my_booking.status%></p>
             <div class="d-flex justify-content-end">
               <%= link_to 'Annuler', planet_path(my_booking), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir annuler ?"}, class: "btn btn-ghost"%>
