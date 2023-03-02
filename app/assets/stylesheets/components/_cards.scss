@@ -63,10 +63,9 @@
   overflow: hidden;
   font-size: larger;
   height: 220px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: transparent;
+  box-shadow: 0 0 15px $light-gray;
   display: flex;
-  align-items: center;
 }
 
 .image_tag_reservation {
