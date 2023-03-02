@@ -12,7 +12,7 @@
         <h2> <%= link_to planet.name, planet_path(planet), class: "planet-name"%></h2>
         <p> <%= planet.location %></p>
         <div class="price">
-          <p> <%= planet.price_per_night %> €/nuit </p>
+          <p> <%= number_with_delimiter(planet.price_per_night, delimiter: " ",) %> €/nuit </p>
         </div>
         <div class="planet-description">
           <p> <%= planet.description %> </p>

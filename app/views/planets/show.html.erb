@@ -1,43 +1,45 @@
 <h1>Planète : <%= @planet.name %></h1>
 <h2>Chez <%= @planet.user.first_name %> <%= @planet.user.last_name %></h2>
-
-<h2>Informations :</h2>
-<p>Distance depuis votre localisation : <%= @planet.location %></p>
-
-<div class="card-reservation">
-  <%= image_tag @planet.photo, alt: @planet.name, class: 'image_tag_reservation' %>
-  <div class="card-reservation-infos">
-    <h3>Détails :</h3>
-    <p><%= @planet.description %></p>
-    <p>Capacité : <%= @planet.capacity %></p>
-    <p>Prix : <%= @planet.price_per_night %> € / nuit</p>
-  </div>
-</div>
-
-<div class='d-flex'>
-    <div class='btn btn-ghost m-2'>
-      <% if policy(@planet).edit? %>
-        <p><%= link_to "Editer cette planète", edit_planet_path, class: 'clean_link' %></p>
-      <% end %>
+<div class="row">
+  <div class="col-8">
+    <h2>Informations :</h2>
+    <p>Distance depuis votre localisation : <%= @planet.location %></p>
+    <div class="card-reservation">
+      <%= image_tag @planet.photo, alt: @planet.name, class: 'image_tag_reservation' %>
+      <div class="card-reservation-infos">
+        <h3>Détails :</h3>
+        <p><%= @planet.description %></p>
+        <p>Capacité : <%= @planet.capacity %></p>
+        <p>Prix : <%= number_with_delimiter(@planet.price_per_night, delimiter: " ",) %> € / nuit</p>
+      </div>
     </div>
-    <div class='btn btn-ghost m-2'>
-      <% if policy(@planet).destroy? %>
-      <p><%= link_to "Supprimer cette planète", @planet, method: :delete, class: 'clean_link' %></p>
+    <div class='d-flex'>
+        <div class='btn btn-ghost m-2'>
+          <% if policy(@planet).edit? %>
+            <p><%= link_to "Editer cette planète", edit_planet_path, class: 'clean_link' %></p>
+          <% end %>
+        </div>
+        <div class='btn btn-ghost m-2'>
+          <% if policy(@planet).destroy? %>
+          <p><%= link_to "Supprimer cette planète", @planet, method: :delete, class: 'clean_link' %></p>
+        <% end %>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div mt-10>
+      <h2><strong>Réserver</strong></h2>
+    </div>
+    <%= simple_form_for [@planet, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
+      <%= f.input :starting_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, label: 'Dates'%>
+      <%= f.input :ending_date, as: :string, input_html: { class: 'd-none', data: { flatpickr_target: "endTime" } }, label: false %>
+      <%= f.input :number_of_visitors%>
+      <div class='d-flex'>
+        <div class='btn btn-ghost m-2'>
+          <%= f.submit 'Réserver maintenant !'%>
+        </div>
+      </div>
     <% end %>
-    </div>
-</div>
-<div mt-10>
-<h2><strong>Réserver</strong></h2>
-</div>
-
-
-<%= simple_form_for [@planet, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
-  <%= f.input :starting_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, label: 'Dates'%>
-  <%= f.input :ending_date, as: :string, input_html: { class: 'd-none', data: { flatpickr_target: "endTime" } }, label: false %>
-  <%= f.input :number_of_visitors%>
-<div class='d-flex'>
-  <div class='btn btn-ghost m-2'>
-    <%= f.submit 'Réserver maintenant !'%>
   </div>
 </div>
-<% end %>
