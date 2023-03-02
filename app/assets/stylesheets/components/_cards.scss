@@ -12,7 +12,7 @@
 .price {
   position: absolute;
   right: 16px;
-  bottom: 45px;
+  bottom: 135px;
 }
 
 .image_top_card {
@@ -28,10 +28,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 50px;
+  color: black;
 }
 
 .planet-name {
   text-decoration: none;
+  color: black;
+}
+
+.planet-description{
+  color: black;
 }
 
 .card-reservation {
