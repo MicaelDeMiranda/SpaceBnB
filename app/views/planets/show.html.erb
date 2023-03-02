@@ -26,7 +26,23 @@
       </div>
     </div>
   </div>
+  <div class="formulaire col-4">
+    <div mt-10>
+      <h2><strong>Réserver</strong></h2>
+    </div>
+    <%= simple_form_for [@planet, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
+      <%= f.input :starting_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, label: 'Dates'%>
+      <%= f.input :ending_date, as: :string, input_html: { class: 'd-none', data: { flatpickr_target: "endTime" } }, label: false %>
+      <%= f.input :number_of_visitors, class:"form-control me-2"%>
+      <div class='d-flex'>
+        <div>
+          <%= f.submit 'Réserver maintenant !', class: 'btn btn-ghost m-2'%>
+        </div>
+      </div>
+    <% end %>
 
+  </div>
+</div>
 
 <div class='mt-2 mb-2'>
 <h2><strong> Commentaires</strong></h2>
@@ -43,40 +59,3 @@
   <% end %>
 </ul>
 <br>
-
-
-<div class='d-flex'>
-    <% if policy(@planet).edit? %>
-      <div class='btn btn-ghost m-2'>
-        <p><%= link_to "Editer cette planète", edit_planet_path, class: 'clean_link' %></p>
-      </div>
-    <% end %>
-      <% if policy(@planet).destroy? %>
-    <div class='btn btn-ghost m-2'>
-      <p><%= link_to "Supprimer cette planète", @planet, method: :delete, class: 'clean_link' %></p>
-    </div>
-    <% end %>
-    <% if current_user && policy(@planet).comment? %>
-      <div class='btn btn-ghost m-2'>
-        <p><%= link_to "Ajouter un commentaire à cette planète", new_planet_review_path(@planet), class: 'clean_link' %></p>
-      </div>
-    <% end %>
-</div>
-
-  <div class="col-4">
-    <div mt-10>
-      <h2><strong>Réserver</strong></h2>
-    </div>
-    <%= simple_form_for [@planet, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
-      <%= f.input :starting_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, label: 'Dates'%>
-      <%= f.input :ending_date, as: :string, input_html: { class: 'd-none', data: { flatpickr_target: "endTime" } }, label: false %>
-      <%= f.input :number_of_visitors%>
-      <div class='d-flex'>
-        <div>
-          <%= f.submit 'Réserver maintenant !', class: 'btn btn-ghost m-2'%>
-        </div>
-      </div>
-    <% end %>
-
-  </div>
-</div>
