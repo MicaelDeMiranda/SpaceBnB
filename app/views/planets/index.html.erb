@@ -1,21 +1,25 @@
 <h2><span data-controller="typed-js"></span></h2>
 <div class="cards">
   <% @planets.each do |planet| %>
-    <div class="card-planet">
+    <div class="card_planet btn-gradient-1">
       <%= link_to planet_path(planet) do %>
       <% if planet.photo.attached? %>
         <%= image_tag planet.photo, class: "image_top_card" %>
       <% else %>
-        <img class="default_top_card" src="https://images.unsplash.com/photo-1545156521-77bd85671d30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" alt="">
+        <img class="default_photo" src="https://images.unsplash.com/photo-1545156521-77bd85671d30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" alt="">
       <% end %>
+      <div class="card-info">
         <h2> <%= link_to planet.name, planet_path(planet), class: "planet-name"%></h2>
-        <p> <%= planet.location %></p>
+        <div class="planet-location">
+          <p> <%= planet.location %></p>
+        </div>
         <div class="price">
           <p> <%= number_with_delimiter(planet.price_per_night, delimiter: " ",) %> €/nuit </p>
         </div>
-        <div class="planet-description">
-          <p> <%= planet.description %> </p>
-        </div>
+        <%# <div class=" text-justify planet-description"> %>
+          <%# <p> <%= planet.description %>
+        <%# </div> %>
+      </div>
       <% end %>
     </div>
   <% end %>

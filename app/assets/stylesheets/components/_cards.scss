@@ -1,41 +1,69 @@
-
-
-.card-planet{
+.card_planet{
   border: 1px solid black;
   border-radius: 20px;
-  padding: 10px 15px;
-  display: flexbox;
   justify-content: center;
   position: relative;
+  height: 500px;
+}
+
+.show_card_planet {
+  border: 1px solid black;
+  border-radius: 20px;
+  justify-content: center;
+  position: relative;
+}
+
+.card-info {
+  padding: 10px;
+}
+
+.btn-gradient-1 {
+  border-width: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, grey, white) 1;
 }
 
 .price {
   position: absolute;
   right: 16px;
-  bottom: 85px;
+  bottom: 0;
+  color: white;
 }
 
 .image_top_card {
   background-size: contain;
   object-fit: cover;
-  height: 50%;
+  height: 400px;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: black;
-  border-radius: 5%;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
 }
 
-.default_top_card {
+.show_image_top_card {
   background-size: contain;
-  object-fit: contain;
-  height: 50%;
+  object-fit: cover;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: black;
-  border-radius: 20px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
 }
+
+.default_photo {
+  background-size: contain;
+  object-fit: cover;
+  height: 400px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  border-radius: 15px;
+}
+
 
 .cards {
   display: grid;
@@ -46,11 +74,15 @@
 
 .planet-name {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
-.planet-description{
-  color: black;
+.planet-description {
+  color: white;
+}
+
+.planet-location {
+  color: white;
 }
 
 .card-reservation {
