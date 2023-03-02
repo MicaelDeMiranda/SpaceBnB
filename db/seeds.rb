@@ -13,7 +13,7 @@ user_booker = User.create(email: "booker@spacebnb.com", password: "mdpmdp", firs
 user_owner = User.create(email: "owner@spacebnb.com", password: "mdpmdp", first_name: 'Olivier', last_name: 'Owner')
 
 planets = [
-  { name: 'Arrakis', location: "500 années-lumière", capacity: "5000", price_per_night: 50, user: user_owner },
+  { name: 'Arrakis', location: "500 années-lumière", capacity: "5000", price_per_night: 50, user: user_owner, description: 'Passionné de ralllyes dans le desert et de courses de vers géants ? Arrakis saura combler l’aventurier qui sommeille en vous.' },
   { name: 'Cérès', location: "413 millions km", capacity: "10", price_per_night: "300", user: user_owner },
   { name: "Éris", location: "565 millions km", capacity: "500", price_per_night: "250", user: user_owner },
   { name: "Hauméa", location: "5,2 milliards km", capacity: "230", price_per_night: "270", user: user_owner },
