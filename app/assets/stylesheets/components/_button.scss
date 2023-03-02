@@ -2,7 +2,7 @@
   color: $light-gray;
   border: 1px solid $light-gray;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: $border-radius-lg;
   font-weight: lighter;
   opacity: 0,6;
   transition: opacity 0.3s ease;
@@ -10,11 +10,15 @@
 }
 
 .btn-ghost:hover {
-  opacity: 1;
+  border: 1px solid $green;
+  color: $green;
 }
 
-.clean_link{
-  text-decoration: none;
+.text-hover-green {
   color: $light-gray;
-  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.text-hover-green:hover {
+  color: $green;
 }
