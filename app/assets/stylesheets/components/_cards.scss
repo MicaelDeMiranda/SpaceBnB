@@ -3,7 +3,10 @@
   border-radius: 20px;
   justify-content: center;
   position: relative;
-  max-height: 70vh;
+  height: 500px;
+}
+.card-info {
+  padding: 10px;
 }
 
 .btn-gradient-1 {
@@ -15,14 +18,14 @@
 .price {
   position: absolute;
   right: 16px;
-  bottom: 30%;
+  bottom: 0;
   color: white;
 }
 
 .image_top_card {
   background-size: contain;
   object-fit: cover;
-  height: 60%;
+  height: 400px;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -34,7 +37,7 @@
 .default_photo {
   background-size: contain;
   object-fit: cover;
-  height: 50%;
+  height: 400px;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -53,7 +56,6 @@
 .planet-name {
   text-decoration: none;
   color: white;
-  padding: 5px;
 }
 
 .planet-description {
