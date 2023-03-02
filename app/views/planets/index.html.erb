@@ -2,7 +2,7 @@
 <h2><span data-controller="typed-js"></span></h2>
 <div class="cards">
   <% @planets.each do |planet| %>
-    <div class="card-planet">
+    <div class="card_planet btn-gradient-1">
       <%= link_to planet_path(planet) do %>
       <% if planet.photo.attached? %>
         <%= image_tag planet.photo, class: "image_top_card" %>
