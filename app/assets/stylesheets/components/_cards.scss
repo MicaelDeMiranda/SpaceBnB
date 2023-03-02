@@ -3,19 +3,20 @@
   border-radius: 20px;
   justify-content: center;
   position: relative;
-  max-height: 80vh;
+  max-height: 70vh;
 }
 
 .btn-gradient-1 {
   border-width: 4px;
   border-style: solid;
-  border-image: linear-gradient(to bottom, black, white) 1;
+  border-image: linear-gradient(to bottom, grey, white) 1;
 }
 
 .price {
   position: absolute;
   right: 16px;
-  bottom: 85px;
+  bottom: 30%;
+  color: white;
 }
 
 .image_top_card {
@@ -51,12 +52,16 @@
 
 .planet-name {
   text-decoration: none;
-  color: black;
+  color: white;
   padding: 5px;
 }
 
-.planet-description{
-  color: black;
+.planet-description {
+  color: white;
+}
+
+.planet-location {
+  color: white;
 }
 
 .card-reservation {

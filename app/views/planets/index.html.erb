@@ -10,7 +10,9 @@
       <% end %>
       <div class="card-info">
         <h2> <%= link_to planet.name, planet_path(planet), class: "planet-name"%></h2>
+      <div class="planet-location">
         <p> <%= planet.location %></p>
+      </div>
         <div class="price">
           <p> <%= number_with_delimiter(planet.price_per_night, delimiter: " ",) %> €/nuit </p>
         </div>
