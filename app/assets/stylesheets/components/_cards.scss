@@ -5,6 +5,14 @@
   position: relative;
   height: 500px;
 }
+
+.show_card_planet {
+  border: 1px solid black;
+  border-radius: 20px;
+  justify-content: center;
+  position: relative;
+}
+
 .card-info {
   padding: 10px;
 }
@@ -26,6 +34,17 @@
   background-size: contain;
   object-fit: cover;
   height: 400px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.show_image_top_card {
+  background-size: contain;
+  object-fit: cover;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
