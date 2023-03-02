@@ -15,12 +15,12 @@
       <div class='d-flex flex-column'>
           <div class=''>
             <% if policy(@planet).edit? %>
-              <p><%= link_to "Editer cette planète", edit_planet_path, class: 'btn btn-ghost m-2' %></p>
+              <p><%= link_to "Modifier ma planète", edit_planet_path, class: 'btn btn-ghost m-2' %></p>
             <% end %>
           </div>
           <div class=''>
             <% if policy(@planet).destroy? %>
-            <p><%= link_to "Supprimer cette planète", @planet, method: :delete, class: 'btn btn-ghost m-2' %></p>
+            <p><%= link_to "Supprimer ma planète", @planet, method: :delete, class: 'btn btn-ghost m-2' %></p>
           <% end %>
           </div>
       </div>
