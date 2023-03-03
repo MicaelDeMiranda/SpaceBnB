@@ -43,7 +43,7 @@
         <div class="card-reservation mb-2">
           <%= image_tag planet_booking.planet.photo, alt: planet_booking.planet.name, class: 'image_tag_reservation' %>
           <div class="card-reservation-infos">
-            <h2 class="card-name-resa"><%= planet_booking.planet.name %></h2>
+            <h2 class="card-name-resa"><%= link_to planet_booking.planet.name, planet_path(planet_booking), class: "planet-name" %></h2>
             <p>Nombre de voyageurs : <%= planet_booking.number_of_visitors %></p>
             <p>Date d'arrivée : <%= planet_booking.starting_date %></p>
             <p>Date de départ : <%= planet_booking.ending_date %></p>
@@ -76,7 +76,7 @@
           <div class="card-reservation-mine mb-2">
             <%= image_tag my_booking.planet.photo, alt: my_booking.planet.name, class: 'image_tag_reservation' %>
             <div class="card-reservation-infos">
-              <h2 class="card-name-resa"><%= my_booking.planet.name %></h2>
+              <h2 class="card-name-resa"><%= link_to my_booking.planet.name, planet_path(my_booking), class: "planet-name" %></h2>
               <p>Lieu : <%= my_booking.planet.location %></p>
               <p>Nombre de voyageurs : <%= my_booking.number_of_visitors %></p>
               <p>Date d'arrivée : <%= my_booking.starting_date %></p>
