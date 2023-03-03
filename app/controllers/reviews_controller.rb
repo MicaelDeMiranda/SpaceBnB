@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @review.planet = @planet
     @review.user = current_user
     @review.save
-    redirect_to root_path
+    redirect_to planet_path(@planet)
     authorize @review
   end
 
