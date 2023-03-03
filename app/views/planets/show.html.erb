@@ -31,7 +31,7 @@
           </div>
           <div class=''>
             <% if policy(@planet).destroy? %>
-            <p><%= link_to "Supprimer ma planète", @planet, method: :delete, class: 'btn btn-ghost m-2' %></p>
+            <p><%= link_to "Supprimer ma planète", planet_path(@planet), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ?"}, class: 'btn btn-ghost m-2' %></p>
           <% end %>
           </div>
           <div class=''>
@@ -83,7 +83,7 @@
       <% if current_user == review.user  %>
       <p><%= link_to "Supprimer ce commentaire",
         review_path(review),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+        data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ?"},
         class: 'btn btn-ghost mt-3'%>
       <% end %></p>
   </li>
