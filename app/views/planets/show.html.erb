@@ -61,6 +61,18 @@
 </div>
 <ul class="list-group">
   <% @planet.reviews.each do |review| %>
+  <li class="list-group-item">
+     <small>
+      <% count = 0 %>
+      <% 5.times do %>
+        <% if review.rating > count %>
+          <i class="fa-solid fa-star"></i>
+        <% else %>
+          <i class="fa-regular fa-star"></i>
+        <% end %>
+        <% count += 1 %>
+      <% end %>
+    </small>
     <li class="list-group-item"><%= review.content %>
       <% if current_user == review.user  %>
        <p><%= link_to "Supprimer ce commentaire",
