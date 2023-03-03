@@ -11,6 +11,7 @@
   border-radius: 20px;
   justify-content: center;
   position: relative;
+  height: 540px;
 }
 
 .card-info {
@@ -30,6 +31,13 @@
   color: white;
 }
 
+.price-show {
+  position: absolute;
+  right: 16px;
+  bottom: 15%;
+  color: white;
+}
+
 .image_top_card {
   background-size: contain;
   object-fit: cover;
@@ -44,7 +52,8 @@
 
 .show_image_top_card {
   background-size: contain;
-  object-fit: cover;
+  object-fit: contain;
+  height: 400px;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -63,7 +72,6 @@
   background-color: black;
   border-radius: 15px;
 }
-
 
 .cards {
   display: grid;
@@ -92,9 +100,22 @@
 .card-reservation {
   overflow: hidden;
   font-size: larger;
-  height: 220px;
+  height: 230px;
   background: transparent;
-  box-shadow: 0 0 15px $light-gray;
+  border-width: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, grey, white) 1;
+  display: flex;
+}
+
+.card-reservation-mine {
+  overflow: hidden;
+  font-size: larger;
+  height: 250px;
+  background: transparent;
+  border-width: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, grey, white) 1;
   display: flex;
 }
 
@@ -110,10 +131,16 @@
 }
 
 .card-reservation p {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
+  margin-bottom: 10px;
+  margin-top: 8px;
+}
+
+.card-reservation-infos p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 10px;
   margin-top: 8px;
 }
 
