@@ -31,6 +31,11 @@
             <p><%= link_to "Supprimer ma planète", @planet, method: :delete, class: 'btn btn-ghost m-2' %></p>
           <% end %>
           </div>
+          <div class=''>
+            <% if current_user && policy(@planet).comment? %>
+                <p><%= link_to "Notez votre séjour !", new_planet_review_path(@planet), class: 'btn btn-ghost m-2' %></p>
+            <% end %>
+          </div>
       </div>
   </div>
   <div class="formulaire col-4">
@@ -52,10 +57,24 @@
 </div>
 
 <div class='mt-2 mb-2'>
-<h2><strong> Commentaires</strong></h2>
+  <% unless @planet.reviews.blank? %>
+    <h2><strong> Commentaires: </strong></h2>
+  <% end %>
 </div>
 <ul class="list-group">
   <% @planet.reviews.each do |review| %>
+  <li class="list-group-item">
+     <small>
+      <% count = 0 %>
+      <% review.rating.times do %>
+        <% if review.rating > count %>
+          <i class="fa-solid fa-star"></i>
+        <% else %>
+          <i class="fa-regular fa-star"></i>
+        <% end %>
+        <% count += 1 %>
+      <% end %>
+    </small>
     <li class="list-group-item"><%= review.content %>
       <% if current_user == review.user  %>
        <p><%= link_to "Supprimer ce commentaire",

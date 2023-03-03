@@ -19,7 +19,10 @@ class PlanetPolicy < ApplicationPolicy
   end
 
   def comment?
-    user.bookings.find { |booking| (booking.user == user && booking.ending_date < Date.today && booking.status == "Réservation confirmée") }
+    i = 0
+    instance = user.bookings.select { |booking| (booking.user == user && booking.ending_date < Date.today && booking.status == "Réservation confirmée") }
+    instance.each {|booking| booking.planet == record ? i += 1 : i }
+    i != 0 ? true : false
   end
 
   def edit?

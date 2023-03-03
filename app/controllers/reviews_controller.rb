@@ -11,11 +11,11 @@ class ReviewsController < ApplicationController
     @review.planet = @planet
     @review.user = current_user
     @review.save
-    redirect_to root_path
+    redirect_to planet_path(@planet)
     authorize @review
   end
 
-  
+
 
   def destroy
     @review = Review.find(params[:id])
@@ -32,6 +32,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:review).permit(:content, :rating)
   end
 end
