@@ -1,9 +1,17 @@
-<%= simple_form_for(@planet) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-  <%= f.input :price_per_night %>
-  <%= f.input :capacity %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
+<div class='row justify-content-center'>
+  <div class='col-6'>
+      <h1>Ajouter ma planète</h1>
+
+    <%= simple_form_for(@planet) do |f| %>
+      <%= f.input :name, label:'Nom', class:"form-control me-2" %>
+      <%= f.input :location, class:"form-control me-2" %>
+      <%= f.input :price_per_night, class:"form-control me-2" %>
+      <%= f.input :capacity, class:"form-control me-2" %>
+      <%= f.input :description, class:"form-control me-2" %>
+      <%= f.label :photo, class:"form-control label_photo mt-2 me-2" %>
+      <%= f.input :photo, as: :file, class:"form-control me-2", label: false %>
+      <%= f.submit 'Créer ma planète', class: 'btn btn-ghost m-2' %>
+    <% end %>
+  </div>
+
+</div>
