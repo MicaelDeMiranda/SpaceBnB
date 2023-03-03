@@ -57,7 +57,9 @@
 </div>
 
 <div class='mt-2 mb-2'>
-<h2><strong> Commentaires</strong></h2>
+  <% unless @planet.reviews.blank? %>
+    <h2><strong> Commentaires: </strong></h2>
+  <% end %>
 </div>
 <ul class="list-group">
   <% @planet.reviews.each do |review| %>
