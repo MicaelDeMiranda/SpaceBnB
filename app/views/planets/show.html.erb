@@ -31,11 +31,12 @@
             <p><%= link_to "Supprimer ma planète", @planet, method: :delete, class: 'btn btn-ghost m-2' %></p>
           <% end %>
           </div>
-          <% if current_user && policy(@planet).comment? %>
-            <div>
-              <p><%= link_to "Ajouter un commentaire à cette planète", new_planet_review_path(@planet), class: 'btn btn-ghost m-2' %></p>
-            </div>
-          <% end %>
+          <div class=''>
+            <% if current_user && policy(@planet).comment? %>
+            <%= policy(@planet).comment? %>
+                <p><%= link_to "Notez votre séjour !", new_planet_review_path(@planet), class: 'btn btn-ghost m-2' %></p>
+            <% end %>
+          </div>
       </div>
   </div>
   <div class="formulaire col-4">
