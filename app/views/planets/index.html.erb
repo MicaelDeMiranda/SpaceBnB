@@ -4,7 +4,7 @@
     <div class="card_planet btn-gradient-1">
       <%= link_to planet_path(planet) do %>
       <% if planet.photo.attached? %>
-        <%= image_tag planet.photo, class: "image_top_card" %>
+        <%= cl_image_tag planet.photo.key, class: "image_top_card" %>
       <% else %>
         <img class="default_photo" src="https://images.unsplash.com/photo-1545156521-77bd85671d30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" alt="">
       <% end %>

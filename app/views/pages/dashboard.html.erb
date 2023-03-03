@@ -11,7 +11,7 @@
         <div class="card_planet btn-gradient-1">
           <%= link_to planet_path(planet) do %>
           <% if planet.photo.attached? %>
-            <%= image_tag planet.photo, class: "image_top_card" %>
+            <%= cl_image_tag planet.photo.key, class: "image_top_card" %>
           <% else %>
             <img class="default_photo" src="https://images.unsplash.com/photo-1545156521-77bd85671d30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" alt="">
           <% end %>
@@ -44,7 +44,7 @@
         <div class="card-reservation mb-2">
           <div class="photo-size">
           <% if planet_booking.planet.photo %>
-            <%= image_tag planet_booking.planet.photo, alt: planet_booking.planet.name, class: 'image_tag_reservation'  %>
+            <%= cl_image_tag planet_booking.planet.photo.key, alt: planet_booking.planet.name, class: 'image_tag_reservation'  %>
           </div>
           <div class="card-reservation-infos">
             <h2 class="card-name-resa"><%= link_to planet_booking.planet.name, planet_path(planet_booking.planet), class: "planet-name" %></h2>
@@ -90,7 +90,7 @@
     <% else %>
         <% @my_bookings.each do |my_booking| %>
           <div class="card-reservation-mine mb-2">
-            <%= image_tag my_booking.planet.photo, alt: my_booking.planet.name, class: 'image_tag_reservation' %>
+            <%= cl_image_tag my_booking.planet.photo.key, alt: my_booking.planet.name, class: 'image_tag_reservation' %>
             <div class="card-reservation-infos">
               <h2 class="card-name-resa"><%= link_to my_booking.planet.name, planet_path(my_booking.planet), class: "planet-name" %></h2>
               <p>Lieu : <%= my_booking.planet.location %></p>

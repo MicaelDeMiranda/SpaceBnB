@@ -51,7 +51,7 @@ planets = [
 planets.each do |data|
   planet = Planet.new(data)
   photo = File.open(Rails.root.to_s + '/app/assets/images/planets' + "/#{data[:name]}.png")
-  planet.photo.attach(io: photo, filename: data[:name])
+  planet.photo.attach(io: photo, filename: data[:name], content_type: "image/png")
   planet.save!
   puts "Created #{planet.name}"
 end
