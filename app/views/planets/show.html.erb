@@ -31,7 +31,7 @@
           </div>
           <div class=''>
             <% if policy(@planet).destroy? %>
-            <p><%= link_to "Supprimer ma planète", @planet, method: :delete, class: 'btn btn-ghost m-2' %></p>
+            <p><%= link_to "Supprimer ma planète", planet_path(@planet), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ?"}, class: 'btn btn-ghost m-2' %></p>
           <% end %>
           </div>
           <div class=''>
@@ -61,13 +61,14 @@
 
 <div class='mt-2 mb-2'>
   <% unless @planet.reviews.blank? %>
-    <h2><strong> Commentaires: </strong></h2>
+    <h2>Commentaires :</h2>
   <% end %>
 </div>
-<ul class="list-group">
+
+<ul class="">
   <% @planet.reviews.each do |review| %>
   <li class="list-group-item">
-     <small>
+    <small>
       <% count = 0 %>
       <% review.rating.times do %>
         <% if review.rating > count %>
@@ -80,9 +81,10 @@
     </small>
     <li class="list-group-item"><%= review.content %>
       <% if current_user == review.user  %>
-       <p><%= link_to "Supprimer ce commentaire",
+      <p><%= link_to "Supprimer ce commentaire",
         review_path(review),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ?"},
+        class: 'btn btn-ghost mt-3'%>
       <% end %></p>
   </li>
   <% end %>

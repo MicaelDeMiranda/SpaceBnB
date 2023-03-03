@@ -103,7 +103,7 @@
               <p>Statut : <%= my_booking.status%></p>
             </div>
               <div class="button-resa">
-                <%= link_to 'Annuler', planet_path(my_booking), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir annuler ?"}, class: "btn btn-ghost"%>
+                <%= link_to 'Annuler', planet_path(my_booking.planet), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ?"}, class: 'btn btn-ghost m-2' %>
               </div>
           </div>
         <% end %>
