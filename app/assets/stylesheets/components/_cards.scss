@@ -11,6 +11,7 @@
   border-radius: 20px;
   justify-content: center;
   position: relative;
+  height: 540px;
 }
 
 .card-info {
@@ -30,6 +31,13 @@
   color: white;
 }
 
+.price-show {
+  position: absolute;
+  right: 16px;
+  bottom: 15%;
+  color: white;
+}
+
 .image_top_card {
   background-size: contain;
   object-fit: cover;
@@ -44,7 +52,8 @@
 
 .show_image_top_card {
   background-size: contain;
-  object-fit: cover;
+  object-fit: contain;
+  height: 400px;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;

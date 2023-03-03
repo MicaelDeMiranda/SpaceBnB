@@ -11,12 +11,12 @@
         <div class="planet-location">
           <p> <%= @planet.location %></p>
         </div>
-        <div class="price">
+        <div class="price-show">
           <p> <%= number_with_delimiter(@planet.price_per_night, delimiter: " ",) %> €/nuit </p>
         </div>
-        <%# <div class=" text-justify planet-description"> %>
-          <%# <p> <%= planet.description %>
-        <%# </div> %>
+        <div class=" text-justify planet-description">
+          <p> <%= @planet.description %></p>
+        </div>
       </div>
     </div>
 
