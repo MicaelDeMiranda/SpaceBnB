@@ -10,15 +10,15 @@ Planet.destroy_all
 User.destroy_all
 
 user_booker = User.create(email: "booker@spacebnb.com", password: "mdpmdp", first_name: 'Beyonce', last_name: 'Booker')
-user_booker.photo.attach(io: File.open('/home/lisa/code/LisaMillet/SpaceBnB/app/assets/images/users/Beyonce.jpg'), filename: "Beyonce", content_type: "image/jpg")
+user_booker.photo.attach(io: File.open(Rails.root.to_s + '/app/assets/images/users/Beyonce.jpg'), filename: "Beyonce", content_type: "image/jpg")
 user_booker.save!
 
 user_owner1 = User.create(email: "owner@spacebnb.com", password: "mdpmdp", first_name: 'Olivier', last_name: 'Owner')
-user_owner1.photo.attach(io: File.open('/home/lisa/code/LisaMillet/SpaceBnB/app/assets/images/users/OlivierGiroud.jpg'), filename: "OlivierGiroud", content_type: "image/jpg")
+user_owner1.photo.attach(io: File.open(Rails.root.to_s + '/app/assets/images/users/OlivierGiroud.jpg'), filename: "OlivierGiroud", content_type: "image/jpg")
 user_owner1.save!
 
 user_owner2 = User.create(email: "ophelie@spacebnb.com", password: "mdpmdp", first_name: 'Ophélie', last_name: 'Owner')
-user_owner2.photo.attach(io: File.open('/home/lisa/code/LisaMillet/SpaceBnB/app/assets/images/users/OphelieWinter.jpg'), filename: "OphelieWinter", content_type: "image/jpg")
+user_owner2.photo.attach(io: File.open(Rails.root.to_s + '/app/assets/images/users/OphelieWinter.jpg'), filename: "OphelieWinter", content_type: "image/jpg")
 user_owner2.save!
 
 planets = [
