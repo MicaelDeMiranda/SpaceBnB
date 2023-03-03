@@ -1,4 +1,4 @@
-<h1><%= @planet.name %></h1>
+<h1><%= @planet.name %> chez <%= @planet.user.first_name %></h1>
 <div class="row">
   <div class="col-8">
     <div class="show_card_planet btn-gradient-1">
@@ -16,6 +16,9 @@
         </div>
         <div class=" text-justify planet-description">
           <p> <%= @planet.description %></p>
+        </div>
+        <div class=" text-justify planet-description">
+          <p> Capacité : <%= number_with_delimiter(@planet.capacity, delimiter: " ",) %> visiteurs</p>
         </div>
       </div>
     </div>
