@@ -33,7 +33,6 @@
           </div>
           <div class=''>
             <% if current_user && policy(@planet).comment? %>
-            <%= policy(@planet).comment? %>
                 <p><%= link_to "Notez votre séjour !", new_planet_review_path(@planet), class: 'btn btn-ghost m-2' %></p>
             <% end %>
           </div>
