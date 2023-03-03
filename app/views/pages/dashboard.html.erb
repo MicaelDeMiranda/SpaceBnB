@@ -1,5 +1,6 @@
 
-  <h1>Bienvenue <%= current_user.first_name %> !</h1>
+<h1>Bienvenue <%= current_user.first_name %> !</h1>
+<div>
   <div>
   <h2>Mes planètes :</h2>
     <% if @planets.empty? %>
@@ -32,7 +33,7 @@
       </div>
     </div>
     <% end %>
-
+  </div>
 
   <h2 class="mt-3">Mes demandes de réservations :</h2>
   <div>
@@ -41,7 +42,10 @@
     <% else %>
       <% @planet_bookings.each do |planet_booking| %>
         <div class="card-reservation mb-2">
-          <%= image_tag planet_booking.planet.photo, alt: planet_booking.planet.name, class: 'image_tag_reservation' %>
+          <div class="photo-size">
+          <% if planet_booking.planet.photo %>
+            <%= image_tag planet_booking.planet.photo, alt: planet_booking.planet.name, class: 'image_tag_reservation'  %>
+          </div>
           <div class="card-reservation-infos">
             <h2 class="card-name-resa"><%= link_to planet_booking.planet.name, planet_path(planet_booking), class: "planet-name" %></h2>
             <p>Nombre de voyageurs : <%= planet_booking.number_of_visitors %></p>
@@ -51,6 +55,18 @@
             <% total = number_of_days.to_i * planet_booking.planet.price_per_night%>
             <p>Total : <%=number_with_delimiter(total, delimiter: " ",)%> €</p>
             <p>Statut : <%= planet_booking.status%></p>
+            <% else %>
+            <img class="default_photo" src="https://images.unsplash.com/photo-1545156521-77bd85671d30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" alt="">
+             <div class="card-reservation-infos">
+            <h2 class="card-name-resa"><%= link_to planet_booking.planet.name, planet_path(planet_booking), class: "planet-name" %></h2>
+            <p>Nombre de voyageurs : <%= planet_booking.number_of_visitors %></p>
+            <p>Date d'arrivée : <%= planet_booking.starting_date %></p>
+            <p>Date de départ : <%= planet_booking.ending_date %></p>
+            <% number_of_days = (planet_booking.ending_date - planet_booking.starting_date)%>
+            <% total = number_of_days.to_i * planet_booking.planet.price_per_night%>
+            <p>Total : <%=number_with_delimiter(total, delimiter: " ",)%> €</p>
+            <p>Statut : <%= planet_booking.status%></p>
+          <% end %>
           </div>
             <div class="button-resa">
               <% if planet_booking.status == "En attente de confirmation"%>

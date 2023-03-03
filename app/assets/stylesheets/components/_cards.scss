@@ -106,6 +106,7 @@
   border-style: solid;
   border-image: linear-gradient(to bottom, grey, white) 1;
   display: flex;
+  object-fit: cover;
 }
 
 .card-reservation-mine {
@@ -119,9 +120,12 @@
   display: flex;
 }
 
+.photo-size {
+  width: 400px;
+}
+
 .image_tag_reservation {
   height: 100%;
-  object-fit: cover;
 }
 
 .card-reservation h2 {
