@@ -2,7 +2,12 @@ class PlanetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :new]
 
   def index
-    @planets = Planet.all
+    # @planets = policy_scope(Planet)
+    if params[:query].present?
+      @planets = Planet.search_by_name_and_description(params[:query])
+    else
+      @planets = Planet.all
+    end
   end
 
   def show

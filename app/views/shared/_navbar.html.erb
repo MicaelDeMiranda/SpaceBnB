@@ -9,10 +9,14 @@
     </button>
 
   <div class="search-bar">
-    <form class="form-inline d-flex">
-        <input class="form-control me-2" type="search" placeholder="Vers l'infini et au-delà" aria-label="Search">
-        <button class="btn btn-ghost" type="submit">Search</button>
-    </form>
+    <%= form_with url: planets_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control me-2",
+        placeholder: "Vers l'infini et au-delà"
+      %>
+      <%= submit_tag "Rechercher", class: "btn btn-ghost" %>
+    <% end %>
   </div>
 
 

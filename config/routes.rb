@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "planets#index"
-  resources :planets, except: :index do
+  resources :planets do
     resources :bookings, only: :create
     resources :reviews, only: [:new, :create]
   end

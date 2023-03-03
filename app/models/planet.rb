@@ -10,4 +10,11 @@ class Planet < ApplicationRecord
   # validates :capacity, presence: true
   validates :price_per_night, presence: true
   # validates :description, presence: true, length: { minimum: 100 }
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_description,
+    against: [ :name, :description ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
